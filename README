@@ -1,0 +1,58 @@
+Program:	dgst
+Version:	0.1
+Author:		Shumon Huque <shuque@upenn.edu>
+
+# dgst: compute a cryptographic digest of input files or stdin,
+# analogous to the "openssl dgst -md5|-sha1|-sha256|-sha512" command.
+# Requires the "hashlib" module, in python >= 2.5
+#
+# Usage: dgst [md5|sha1|sha256|sha384|sha512] [file1 file2 ...]
+#
+# Author: Shumon Huque <shuque@upenn.edu>
+
+Pre-requisites:
+
+	Python 2.5 or later
+
+Installation:
+
+    * System wide (typically /usr/bin or /usr/local/bin), as root:
+
+        python setup.py install
+
+    * In your home directory ($HOME/bin):
+
+        python setup.py install --home=$HOME
+
+    * Or just copy the "dgst" file to wherever you want to put it.
+
+
+Example runs:
+
+$ echo hello | dgst sha256
+sha256(STDIN)= 5891b5b522d5df086d0ff0b110fbd9d21bb4fc7163af34d08286a2e846f6be03
+
+$ dgst md5 file1 file2 file3
+md5(file1)= 2b1abc6b6c5c0018851f9f8e6475563b
+md5(file2)= 575c5638d60271457e54ab7d07309502
+md5(file3)= 3385b5d27d4c2923e9cde7ea53f28e2b
+
+
+# Copyright (C) 2013, Shumon Huque
+#
+# tls_rdata is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful, 
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; see the file COPYING.  If not, write to the 
+# Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+# MA 02110-1301, USA.
+#
+# Author: Shumon Huque <shuque -@- upenn.edu>
