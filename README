@@ -1,6 +1,6 @@
 Program:	dgst
-Version:	0.1
-Author:		Shumon Huque <shuque@upenn.edu>
+Version:	0.2
+Author:		Shumon Huque <shuque@gmail.com>
 
 # dgst: compute a cryptographic digest of input files or stdin,
 # analogous to the "openssl dgst -md5|-sha1|-sha256|-sha512" command.
@@ -8,11 +8,11 @@ Author:		Shumon Huque <shuque@upenn.edu>
 #
 # Usage: dgst [md5|sha1|sha256|sha384|sha512] [file1 file2 ...]
 #
-# Author: Shumon Huque <shuque@upenn.edu>
+# Author: Shumon Huque <shuque@gmail.com>
 
 Pre-requisites:
 
-	Python 2.5 or later
+	Python 2.7 or later, or Python 3.x
 
 Installation:
 
@@ -40,7 +40,7 @@ md5(file3)= 3385b5d27d4c2923e9cde7ea53f28e2b
 
 # Copyright (C) 2013, Shumon Huque
 #
-# tls_rdata is free software; you can redistribute it and/or modify it
+# This is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 2, or (at your option)
 # any later version.
@@ -55,4 +55,4 @@ md5(file3)= 3385b5d27d4c2923e9cde7ea53f28e2b
 # Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 # MA 02110-1301, USA.
 #
-# Author: Shumon Huque <shuque -@- upenn.edu>
+# Author: Shumon Huque <shuque -@- gmail.com>

@@ -6,7 +6,7 @@
 #
 # Usage: dgst [md5|sha1|sha256|sha384|sha512] [file1 file2 ...]
 #
-# Author: Shumon Huque <shuque@upenn.edu>
+# Author: Shumon Huque <shuque@gmail.com>
 #
 
 import sys, os, hashlib
@@ -19,8 +19,8 @@ HASHFUNC = dict(md5    = hashlib.md5,
                 sha512 = hashlib.sha512)
 
 def usage():
-    print >>sys.stderr, \
-          "Usage: dgst [md5|sha1|sha256|sha384|sha512] [file1 file2 ...]"
+    junk = sys.stderr.write(
+        "Usage: dgst [md5|sha1|sha256|sha384|sha512] [file1 file2 ...]\n")
     sys.exit(1)
 
 
@@ -37,18 +37,23 @@ if __name__ == '__main__':
         usage()
 
     hashtype = sys.argv[1]
-    if not HASHFUNC.has_key(hashtype):
+    if hashtype not in HASHFUNC:
         usage()
     func = HASHFUNC[hashtype]
 
     if sys.argv[2:]:
         for arg in sys.argv[2:]:
             if os.path.isfile(arg) != 1:
-                print >>sys.stderr, "ERROR: %s isn't a file" % arg
+                sys.stderr.write("ERROR: {} isn't a file\n".format(arg))
             else:
-                print "%s(%s)= %s" % (hashtype, arg, 
-                                      compute_hash(func, open(arg)))
+                print("%s(%s)= %s" % (hashtype, arg, 
+                                      compute_hash(func, open(arg, 'rb'))))
     else:
-        print "%s(STDIN)= %s" % (hashtype, compute_hash(func, sys.stdin))
+        try:
+            stdin_fp = sys.stdin.buffer          # python3
+        except AttributeError:
+            stdin_fp = sys.stdin                 # python2
+
+        print("%s(STDIN)= %s" % (hashtype, compute_hash(func, stdin_fp)))
 
     sys.exit(0)
