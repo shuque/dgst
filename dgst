@@ -24,10 +24,16 @@ def usage():
     sys.exit(1)
 
 
-def compute_hash(func, file):
+def compute_hash(func, f, bufsize=2048):
+    content = b""
     h = func()
-    for line in file:
-        h.update(line)
+
+    while True:
+        buf = f.read(bufsize)
+        if not buf:
+            break
+        h.update(buf)
+
     return h.hexdigest()
 
 
