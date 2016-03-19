@@ -25,15 +25,12 @@ def usage():
 
 
 def compute_hash(func, f, bufsize=2048):
-    content = b""
     h = func()
-
     while True:
         buf = f.read(bufsize)
         if not buf:
             break
         h.update(buf)
-
     return h.hexdigest()
 
 
